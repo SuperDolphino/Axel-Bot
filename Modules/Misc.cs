@@ -37,9 +37,20 @@ namespace Discord_Bot.Modules
 		}
 
 		[Command("Dir")]
+		[RequireUserPermission(GuildPermission.Administrator)]
 		public async Task dir()
 		{
 			await Context.Channel.SendMessageAsync(Directory.GetCurrentDirectory());
+			var embed = new EmbedBuilder();
+			embed.WithTitle("Shop:");
+			
+			var list = Directory.EnumerateDirectories(Directory.GetCurrentDirectory());
+			foreach (var item in list)
+			{
+				embed.AddField(item,Directory.GetFiles(item).ToString(), true);
+			}
+			embed.WithColor(new Color(0, 255, 0));
+			await Context.Channel.SendMessageAsync("", false, embed);
 		}
 
 		[Command("React")]
