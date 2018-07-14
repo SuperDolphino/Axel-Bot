@@ -10,51 +10,42 @@ namespace Discord_Bot
 {
 	 class Config
     {
-        private static string configFolder = $"{Environment.CurrentDirectory}/Resources";
-        private const string configFile = "config.json";
+			private static string configFolder = $"{Environment.CurrentDirectory}/Resources";
+			private const string configFile = "config.json";
 
-        public static BotConfig bot;
+			public static BotConfig bot;
 
-        static Config()
-        {
-            bot = new BotConfig
-            {
-                
-            };
+			static Config()
+			{
+				if (!Directory.Exists(configFolder))
+					Directory.CreateDirectory(configFolder);
 
-            if (!Directory.Exists(configFolder))
-                Directory.CreateDirectory(configFolder);
+				if (!File.Exists(configFolder + "/" + configFile))
+				{
+					bot = new BotConfig();
+					string json = JsonConvert.SerializeObject(bot, Formatting.Indented);
+					File.WriteAllText(configFolder + "/" + configFile, json);
 
-            if(!File.Exists(configFolder + "/" + configFile))
-            {
-                bot = new BotConfig();
-                string json = JsonConvert.SerializeObject(bot,Formatting.Indented);
-                File.WriteAllText(configFolder + "/" + configFile, json);
+				}
+				else
+				{
+					string json = File.ReadAllText(configFolder + "/" + configFile);
 
-            }
-            else
-            {
-                string json = File.ReadAllText(configFolder + "/" + configFile);
+					bot = JsonConvert.DeserializeObject<BotConfig>(json);
+				}
 
-                if (string.IsNullOrEmpty (json))
-                {
-                    bot = new BotConfig
-                    {
-                        token = Environment.GetEnvironmentVariable ("TOKEN"),
-                        cmdPrefix = Environment.GetEnvironmentVariable ("PREFIX")
-                    };
-                }
-                else
-                {
-                    bot = JsonConvert.DeserializeObject<BotConfig>(json);
-                }
-            }
-			System.Console.WriteLine(bot.token);
-			System.Console.WriteLine(bot.cmdPrefix);
+				if (bot.token == "" && bot.cmdPrefix == "")
+				{
+					bot = new BotConfig
+					{
+						token = Environment.GetEnvironmentVariable("TOKEN"),
+						cmdPrefix = Environment.GetEnvironmentVariable("PREFIX")
+					};
+				}
+			}
 		}
-    }
 	}
-
+	
 	public class BotConfig
 	{
 		public string token;
