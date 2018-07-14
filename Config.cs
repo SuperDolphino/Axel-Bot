@@ -10,7 +10,7 @@ namespace Discord_Bot
 {
 	class Config
 	{
-		private const string configFolder = "Resources";
+		private static string configFolder = $"{Environment.CurrentDirectory}/Resources";
 		private const string configFile = "config.json";
 
 		public static BotConfig bot;
