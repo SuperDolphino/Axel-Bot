@@ -48,7 +48,7 @@ namespace Discord_Bot.Modules
 			{
 				embed.AddField(item,Directory.GetFiles(item).ToString(), true);
 			}
-			Directory.SetCurrentDirectory("Resources");
+			Directory.SetCurrentDirectory("/Resources");
 			var list2 = Directory.EnumerateFiles(Directory.GetCurrentDirectory());
 			foreach (var item in list2)
 			{
