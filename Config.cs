@@ -29,7 +29,7 @@ namespace Discord_Bot
 			BotConfig = JsonConvert.DeserializeObject<BotConfig> (File.ReadAllText (ConfigPath));
 		}
 	}
-<<<<<<< HEAD
+
 
 	public class BotConfig
 	{
@@ -38,11 +38,10 @@ namespace Discord_Bot
 	}
 
 
-=======
+
 }
 	
 public class BotConfig
 {
 	public string cmdPrefix;
 }
->>>>>>> 2cd1d33e4926e0a89b4728d7865b139611f39fb3

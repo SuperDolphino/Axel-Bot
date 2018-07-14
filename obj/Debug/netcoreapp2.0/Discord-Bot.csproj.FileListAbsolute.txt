@@ -34,3 +34,9 @@ C:/Users/mohamad/Documents/Visual Studio 2017/Projects/Discord-Bot/Discord-Bot/o
 /home/codemyst/test/Axel-Bot/obj/Debug/netcoreapp2.0/Discord-Bot.AssemblyInfo.cs
 /home/codemyst/test/Axel-Bot/obj/Debug/netcoreapp2.0/Discord-Bot.dll
 /home/codemyst/test/Axel-Bot/obj/Debug/netcoreapp2.0/Discord-Bot.pdb
+C:\Users\mohamad\Documents\Visual Studio 2017\Projects\Discord-Bot\Discord-Bot\obj\Debug\netcoreapp2.0\Discord-Bot.csprojAssemblyReference.cache
+C:\Users\mohamad\Documents\Visual Studio 2017\Projects\Discord-Bot\Discord-Bot\obj\Debug\netcoreapp2.0\Discord-Bot.csproj.CoreCompileInputs.cache
+C:\Users\mohamad\Documents\Visual Studio 2017\Projects\Discord-Bot\Discord-Bot\obj\Debug\netcoreapp2.0\Discord-Bot.AssemblyInfoInputs.cache
+C:\Users\mohamad\Documents\Visual Studio 2017\Projects\Discord-Bot\Discord-Bot\obj\Debug\netcoreapp2.0\Discord-Bot.AssemblyInfo.cs
+C:\Users\mohamad\Documents\Visual Studio 2017\Projects\Discord-Bot\Discord-Bot\obj\Debug\netcoreapp2.0\Discord-Bot.dll
+C:\Users\mohamad\Documents\Visual Studio 2017\Projects\Discord-Bot\Discord-Bot\obj\Debug\netcoreapp2.0\Discord-Bot.pdb
