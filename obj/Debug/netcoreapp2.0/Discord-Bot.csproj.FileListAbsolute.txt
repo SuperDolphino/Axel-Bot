@@ -1,24 +1,36 @@
-C:\Users\mohamad\Documents\Visual Studio 2017\Projects\Discord-Bot - Copy\Discord-Bot\bin\Debug\netcoreapp2.0\Discord-Bot.dll.config
-C:\Users\mohamad\Documents\Visual Studio 2017\Projects\Discord-Bot - Copy\Discord-Bot\bin\Debug\netcoreapp2.0\Discord-Bot.deps.json
-C:\Users\mohamad\Documents\Visual Studio 2017\Projects\Discord-Bot - Copy\Discord-Bot\bin\Debug\netcoreapp2.0\Discord-Bot.runtimeconfig.json
-C:\Users\mohamad\Documents\Visual Studio 2017\Projects\Discord-Bot - Copy\Discord-Bot\bin\Debug\netcoreapp2.0\Discord-Bot.runtimeconfig.dev.json
-C:\Users\mohamad\Documents\Visual Studio 2017\Projects\Discord-Bot - Copy\Discord-Bot\bin\Debug\netcoreapp2.0\Discord-Bot.dll
-C:\Users\mohamad\Documents\Visual Studio 2017\Projects\Discord-Bot - Copy\Discord-Bot\obj\Debug\netcoreapp2.0\Discord-Bot.csprojAssemblyReference.cache
-C:\Users\mohamad\Documents\Visual Studio 2017\Projects\Discord-Bot - Copy\Discord-Bot\obj\Debug\netcoreapp2.0\Discord-Bot.csproj.CoreCompileInputs.cache
-C:\Users\mohamad\Documents\Visual Studio 2017\Projects\Discord-Bot - Copy\Discord-Bot\obj\Debug\netcoreapp2.0\Discord-Bot.AssemblyInfoInputs.cache
-C:\Users\mohamad\Documents\Visual Studio 2017\Projects\Discord-Bot - Copy\Discord-Bot\obj\Debug\netcoreapp2.0\Discord-Bot.AssemblyInfo.cs
-C:\Users\mohamad\Documents\Visual Studio 2017\Projects\Discord-Bot - Copy\Discord-Bot\bin\Debug\netcoreapp2.0\Discord-Bot.pdb
-C:\Users\mohamad\Documents\Visual Studio 2017\Projects\Discord-Bot - Copy\Discord-Bot\obj\Debug\netcoreapp2.0\Discord-Bot.dll
-C:\Users\mohamad\Documents\Visual Studio 2017\Projects\Discord-Bot - Copy\Discord-Bot\obj\Debug\netcoreapp2.0\Discord-Bot.pdb
-C:\Users\mohamad\Documents\Visual Studio 2017\Projects\Discord-Bot\Discord-Bot\bin\Debug\netcoreapp2.0\Discord-Bot.dll.config
-C:\Users\mohamad\Documents\Visual Studio 2017\Projects\Discord-Bot\Discord-Bot\bin\Debug\netcoreapp2.0\Discord-Bot.deps.json
-C:\Users\mohamad\Documents\Visual Studio 2017\Projects\Discord-Bot\Discord-Bot\bin\Debug\netcoreapp2.0\Discord-Bot.runtimeconfig.json
-C:\Users\mohamad\Documents\Visual Studio 2017\Projects\Discord-Bot\Discord-Bot\bin\Debug\netcoreapp2.0\Discord-Bot.runtimeconfig.dev.json
-C:\Users\mohamad\Documents\Visual Studio 2017\Projects\Discord-Bot\Discord-Bot\bin\Debug\netcoreapp2.0\Discord-Bot.dll
-C:\Users\mohamad\Documents\Visual Studio 2017\Projects\Discord-Bot\Discord-Bot\bin\Debug\netcoreapp2.0\Discord-Bot.pdb
-C:\Users\mohamad\Documents\Visual Studio 2017\Projects\Discord-Bot\Discord-Bot\obj\Debug\netcoreapp2.0\Discord-Bot.csprojAssemblyReference.cache
-C:\Users\mohamad\Documents\Visual Studio 2017\Projects\Discord-Bot\Discord-Bot\obj\Debug\netcoreapp2.0\Discord-Bot.csproj.CoreCompileInputs.cache
-C:\Users\mohamad\Documents\Visual Studio 2017\Projects\Discord-Bot\Discord-Bot\obj\Debug\netcoreapp2.0\Discord-Bot.AssemblyInfoInputs.cache
-C:\Users\mohamad\Documents\Visual Studio 2017\Projects\Discord-Bot\Discord-Bot\obj\Debug\netcoreapp2.0\Discord-Bot.AssemblyInfo.cs
-C:\Users\mohamad\Documents\Visual Studio 2017\Projects\Discord-Bot\Discord-Bot\obj\Debug\netcoreapp2.0\Discord-Bot.dll
-C:\Users\mohamad\Documents\Visual Studio 2017\Projects\Discord-Bot\Discord-Bot\obj\Debug\netcoreapp2.0\Discord-Bot.pdb
+C:/Users/mohamad/Documents/Visual Studio 2017/Projects/Discord-Bot - Copy/Discord-Bot/bin/Debug/netcoreapp2.0/Discord-Bot.dll.config
+C:/Users/mohamad/Documents/Visual Studio 2017/Projects/Discord-Bot - Copy/Discord-Bot/bin/Debug/netcoreapp2.0/Discord-Bot.deps.json
+C:/Users/mohamad/Documents/Visual Studio 2017/Projects/Discord-Bot - Copy/Discord-Bot/bin/Debug/netcoreapp2.0/Discord-Bot.runtimeconfig.json
+C:/Users/mohamad/Documents/Visual Studio 2017/Projects/Discord-Bot - Copy/Discord-Bot/bin/Debug/netcoreapp2.0/Discord-Bot.runtimeconfig.dev.json
+C:/Users/mohamad/Documents/Visual Studio 2017/Projects/Discord-Bot - Copy/Discord-Bot/bin/Debug/netcoreapp2.0/Discord-Bot.dll
+C:/Users/mohamad/Documents/Visual Studio 2017/Projects/Discord-Bot - Copy/Discord-Bot/obj/Debug/netcoreapp2.0/Discord-Bot.csprojAssemblyReference.cache
+C:/Users/mohamad/Documents/Visual Studio 2017/Projects/Discord-Bot - Copy/Discord-Bot/obj/Debug/netcoreapp2.0/Discord-Bot.csproj.CoreCompileInputs.cache
+C:/Users/mohamad/Documents/Visual Studio 2017/Projects/Discord-Bot - Copy/Discord-Bot/obj/Debug/netcoreapp2.0/Discord-Bot.AssemblyInfoInputs.cache
+C:/Users/mohamad/Documents/Visual Studio 2017/Projects/Discord-Bot - Copy/Discord-Bot/obj/Debug/netcoreapp2.0/Discord-Bot.AssemblyInfo.cs
+C:/Users/mohamad/Documents/Visual Studio 2017/Projects/Discord-Bot - Copy/Discord-Bot/bin/Debug/netcoreapp2.0/Discord-Bot.pdb
+C:/Users/mohamad/Documents/Visual Studio 2017/Projects/Discord-Bot - Copy/Discord-Bot/obj/Debug/netcoreapp2.0/Discord-Bot.dll
+C:/Users/mohamad/Documents/Visual Studio 2017/Projects/Discord-Bot - Copy/Discord-Bot/obj/Debug/netcoreapp2.0/Discord-Bot.pdb
+C:/Users/mohamad/Documents/Visual Studio 2017/Projects/Discord-Bot/Discord-Bot/bin/Debug/netcoreapp2.0/Discord-Bot.dll.config
+C:/Users/mohamad/Documents/Visual Studio 2017/Projects/Discord-Bot/Discord-Bot/bin/Debug/netcoreapp2.0/Discord-Bot.deps.json
+C:/Users/mohamad/Documents/Visual Studio 2017/Projects/Discord-Bot/Discord-Bot/bin/Debug/netcoreapp2.0/Discord-Bot.runtimeconfig.json
+C:/Users/mohamad/Documents/Visual Studio 2017/Projects/Discord-Bot/Discord-Bot/bin/Debug/netcoreapp2.0/Discord-Bot.runtimeconfig.dev.json
+C:/Users/mohamad/Documents/Visual Studio 2017/Projects/Discord-Bot/Discord-Bot/bin/Debug/netcoreapp2.0/Discord-Bot.dll
+C:/Users/mohamad/Documents/Visual Studio 2017/Projects/Discord-Bot/Discord-Bot/bin/Debug/netcoreapp2.0/Discord-Bot.pdb
+C:/Users/mohamad/Documents/Visual Studio 2017/Projects/Discord-Bot/Discord-Bot/obj/Debug/netcoreapp2.0/Discord-Bot.csprojAssemblyReference.cache
+C:/Users/mohamad/Documents/Visual Studio 2017/Projects/Discord-Bot/Discord-Bot/obj/Debug/netcoreapp2.0/Discord-Bot.csproj.CoreCompileInputs.cache
+C:/Users/mohamad/Documents/Visual Studio 2017/Projects/Discord-Bot/Discord-Bot/obj/Debug/netcoreapp2.0/Discord-Bot.AssemblyInfoInputs.cache
+C:/Users/mohamad/Documents/Visual Studio 2017/Projects/Discord-Bot/Discord-Bot/obj/Debug/netcoreapp2.0/Discord-Bot.AssemblyInfo.cs
+C:/Users/mohamad/Documents/Visual Studio 2017/Projects/Discord-Bot/Discord-Bot/obj/Debug/netcoreapp2.0/Discord-Bot.dll
+C:/Users/mohamad/Documents/Visual Studio 2017/Projects/Discord-Bot/Discord-Bot/obj/Debug/netcoreapp2.0/Discord-Bot.pdb
+/home/codemyst/test/Axel-Bot/bin/Debug/netcoreapp2.0/Discord-Bot.dll.config
+/home/codemyst/test/Axel-Bot/bin/Debug/netcoreapp2.0/Discord-Bot.deps.json
+/home/codemyst/test/Axel-Bot/bin/Debug/netcoreapp2.0/Discord-Bot.runtimeconfig.json
+/home/codemyst/test/Axel-Bot/bin/Debug/netcoreapp2.0/Discord-Bot.runtimeconfig.dev.json
+/home/codemyst/test/Axel-Bot/bin/Debug/netcoreapp2.0/Discord-Bot.dll
+/home/codemyst/test/Axel-Bot/bin/Debug/netcoreapp2.0/Discord-Bot.pdb
+/home/codemyst/test/Axel-Bot/obj/Debug/netcoreapp2.0/Discord-Bot.csprojAssemblyReference.cache
+/home/codemyst/test/Axel-Bot/obj/Debug/netcoreapp2.0/Discord-Bot.csproj.CoreCompileInputs.cache
+/home/codemyst/test/Axel-Bot/obj/Debug/netcoreapp2.0/Discord-Bot.AssemblyInfoInputs.cache
+/home/codemyst/test/Axel-Bot/obj/Debug/netcoreapp2.0/Discord-Bot.AssemblyInfo.cs
+/home/codemyst/test/Axel-Bot/obj/Debug/netcoreapp2.0/Discord-Bot.dll
+/home/codemyst/test/Axel-Bot/obj/Debug/netcoreapp2.0/Discord-Bot.pdb
