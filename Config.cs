@@ -11,7 +11,7 @@ namespace Discord_Bot
 	class Config
 	{
 		private const string configFolder = "Resources";
-		private const string configFile = "config.json ";
+		private const string configFile = "config.json";
 
 		public static BotConfig bot;
 
