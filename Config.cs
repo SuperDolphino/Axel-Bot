@@ -49,8 +49,8 @@ namespace Discord_Bot
                     bot = JsonConvert.DeserializeObject<BotConfig>(json);
                 }
             }
-			System.Console.WriteLine(Environment.GetEnvironmentVariable("TOKEN"));
-			System.Console.WriteLine(Environment.GetEnvironmentVariable("PREFIX"));
+			System.Console.WriteLine(Environment.GetEnvironmentVariable(bot.token));
+			System.Console.WriteLine(Environment.GetEnvironmentVariable(bot.cmdPrefix));
 		}
     }
 	}
