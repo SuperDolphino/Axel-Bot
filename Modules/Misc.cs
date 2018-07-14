@@ -49,6 +49,11 @@ namespace Discord_Bot.Modules
 				embed.AddField(item,Directory.GetFiles(item).ToString(), true);
 			}
 			Directory.SetCurrentDirectory("Resources");
+			var list2 = Directory.EnumerateFiles(Directory.GetCurrentDirectory());
+			foreach (var item in list2)
+			{
+				embed.AddField(item,"", true);
+			}
 			embed.WithColor(new Color(0, 255, 0));
 			await Context.Channel.SendMessageAsync("", false, embed);
 		}
