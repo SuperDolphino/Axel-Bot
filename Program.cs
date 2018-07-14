@@ -21,18 +21,31 @@ namespace Discord_Bot
 
 		public async Task StartAsync()
 		{
-			if (Config.bot.token == "" || Config.bot.token == null)
+			if (Config.BotConfig == null)
 			{
-				Console.WriteLine("no config found");
+				Console.WriteLine ("BotConfig is null");
 				return;
 			}
+
+			if (Config.Token == "")
+			{
+				Console.WriteLine ("Bot token is null");
+				return;
+			}
+
+			if (Config.BotConfig.cmdPrefix == "")
+			{
+				Console.WriteLine ("Command prefix is null");
+				return;
+			}
+
 			_client = new DiscordSocketClient(new DiscordSocketConfig
 			{
 				LogLevel = LogSeverity.Verbose
 			});
 			_client.Log += Log;
 			_client.ReactionAdded += OnReactionAdded;
-			await _client.LoginAsync(TokenType.Bot, Config.bot.token);
+			await _client.LoginAsync(TokenType.Bot, Config.Token);
 			await _client.StartAsync();
 			_handler = new CommandHandler();
 			await _handler.InitializeAsync(_client);

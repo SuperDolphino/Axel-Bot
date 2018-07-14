@@ -8,48 +8,30 @@ using Newtonsoft.Json;
 
 namespace Discord_Bot
 {
-	 class Config
+	class Config
     {
-			private static string configFolder = $"{Environment.CurrentDirectory}/Resources";
-			private const string configFile = "config.json";
+		public const string TokenPath = "Resources/token.json";
+		public const string ConfigPath = "Resources/config.json";
+		public const string TokenEnvVar = "TOKEN";
 
-			public static BotConfig bot;
+		public static BotConfig BotConfig;
+		public static string Token;
 
-			static Config()
-			{
-				if (!Directory.Exists(configFolder))
-					Directory.CreateDirectory(configFolder);
+		static Config()
+		{
+			BotConfig = new BotConfig ();
 
-				if (!File.Exists(configFolder + "/" + configFile))
-				{
-					bot = new BotConfig();
-					string json = JsonConvert.SerializeObject(bot, Formatting.Indented);
-					File.WriteAllText(configFolder + "/" + configFile, json);
+			if (File.Exists (TokenPath))
+				Token = JsonConvert.DeserializeObject<string> (File.ReadAllText (TokenPath));
+			else
+				Token = Environment.GetEnvironmentVariable (TokenEnvVar);
 
-				}
-				else
-				{
-					string json = File.ReadAllText(configFolder + "/" + configFile);
-
-					bot = JsonConvert.DeserializeObject<BotConfig>(json);
-				}
-
-				if (bot.token == "" && bot.cmdPrefix == "")
-				{
-					bot = new BotConfig
-					{
-						token = Environment.GetEnvironmentVariable("TOKEN"),
-						cmdPrefix = Environment.GetEnvironmentVariable("PREFIX")
-					};
-				}
-			}
+			BotConfig = JsonConvert.DeserializeObject<BotConfig> (File.ReadAllText (ConfigPath));
 		}
 	}
+}
 	
-	public class BotConfig
-	{
-		public string token;
-		public string cmdPrefix;
-	}
-
-
+public class BotConfig
+{
+	public string cmdPrefix;
+}
