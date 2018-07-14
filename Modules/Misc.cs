@@ -141,7 +141,7 @@ namespace Discord_Bot.Modules
 			const int numberOfImages = 60;
 			var rand = new Random();
 			int imageNumber = rand.Next(1, numberOfImages);
-			string imageName = "Resources/" + "Axolotls" + "/" + "Axolotl (" + imageNumber.ToString() + ").jpg";
+			string imageName = "Resources\Axolotls" + "\" + "Axolotl (" + imageNumber.ToString() + ").jpg";
 			await Context.Channel.SendFileAsync(imageName);
 		}
 
