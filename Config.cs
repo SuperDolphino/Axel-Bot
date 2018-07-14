@@ -10,28 +10,38 @@ namespace Discord_Bot
 {
 	class Config
 	{
-		private static string configFolder = $"{Environment.CurrentDirectory}/Resources";
-		private const string configFile = "config.json";
 
-		public static BotConfig bot;
+		 public static BotConfig bot;
 
-		static Config()
-		{
-			if (!Directory.Exists(configFolder))
-				Directory.CreateDirectory(configFolder);
+    static Config()
+    {
+        bot = new BotConfig
+        {
+            token = Environment.GetEnvironmentVariable ("TOKEN"),
+            cmdPrefix = Environment.GetEnvironmentVariable ("PREFIX")
+        };
+		// private static string configFolder = $"{Environment.CurrentDirectory}/Resources";
+		// private const string configFile = "config.json";
 
-			if(!File.Exists(configFolder + "/" + configFile))
-			{
-				bot = new BotConfig();
-				string json = JsonConvert.SerializeObject(bot,Formatting.Indented);
-				File.WriteAllText(configFolder + "/" + configFile, json);
+		// public static BotConfig bot;
 
-			}
-			else
-			{
-				string json = File.ReadAllText(configFolder + "/" + configFile);
-				 bot = JsonConvert.DeserializeObject<BotConfig>(json);
-			}
+		// static Config()
+		// {
+		// 	if (!Directory.Exists(configFolder))
+		// 		Directory.CreateDirectory(configFolder);
+
+		// 	if(!File.Exists(configFolder + "/" + configFile))
+		// 	{
+		// 		bot = new BotConfig();
+		// 		string json = JsonConvert.SerializeObject(bot,Formatting.Indented);
+		// 		File.WriteAllText(configFolder + "/" + configFile, json);
+
+		// 	}
+		// 	else
+		// 	{
+		// 		string json = File.ReadAllText(configFolder + "/" + configFile);
+		// 		 bot = JsonConvert.DeserializeObject<BotConfig>(json);
+		// 	}
 		}
 	}
 
