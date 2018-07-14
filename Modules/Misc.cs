@@ -167,7 +167,7 @@ namespace Discord_Bot.Modules
 		{
 
 			await Context.Channel.SendMessageAsync($"Oh Boi!!, it looks like {Context.User.Mention} and {fight.Mention} are fighting!!");
-			
+			Console.WriteLine("FIGHITING AND SHIT");
 			var seconds = 3000;
 			Random r = new Random();
 			int result = r.Next(1, 3);
