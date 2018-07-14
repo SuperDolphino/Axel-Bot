@@ -40,7 +40,6 @@ namespace Discord_Bot.Modules
 		[RequireUserPermission(GuildPermission.Administrator)]
 		public async Task dir()
 		{
-			await Context.Channel.SendMessageAsync(Directory.GetCurrentDirectory());
 			var embed = new EmbedBuilder();
 			embed.WithTitle("Shop:");
 			
