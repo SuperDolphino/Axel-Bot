@@ -34,3 +34,4 @@ C:\Users\mohamad\Documents\Visual Studio 2017\Projects\Discord-Bot\Discord-Bot\b
 C:\Users\mohamad\Documents\Visual Studio 2017\Projects\Discord-Bot\Discord-Bot\bin\Debug\netcoreapp2.0\Discord-Bot.runtimeconfig.dev.json
 C:\Users\mohamad\Documents\Visual Studio 2017\Projects\Discord-Bot\Discord-Bot\bin\Debug\netcoreapp2.0\Discord-Bot.dll
 C:\Users\mohamad\Documents\Visual Studio 2017\Projects\Discord-Bot\Discord-Bot\bin\Debug\netcoreapp2.0\Discord-Bot.pdb
+C:\Users\mohamad\Documents\Visual Studio 2017\Projects\Discord-Bot\Discord-Bot\obj\Debug\netcoreapp2.0\Discord-Bot.csprojAssemblyReference.cache
