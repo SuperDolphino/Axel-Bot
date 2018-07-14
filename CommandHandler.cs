@@ -29,7 +29,6 @@ namespace Discord_Bot
 
 		private async Task HandleCommandAsync(SocketMessage s)
 		{
-			Console.WriteLine("TEooo");
 			var msg = s as SocketUserMessage;
 			if (msg == null) return;
 			var context = new SocketCommandContext(_client, msg);
