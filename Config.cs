@@ -45,7 +45,7 @@ namespace Discord_Bot
 			}
 		}
 	}
-	
+
 	public class BotConfig
 	{
 		public string token;
