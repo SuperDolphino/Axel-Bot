@@ -41,7 +41,7 @@ namespace Discord_Bot
                     bot = new BotConfig
                     {
                         token = Environment.GetEnvironmentVariable ("TOKEN"),
-                        cmdPrefix = Environment.GetEnvironmentVariable ("CMDPREFIX")
+                        cmdPrefix = Environment.GetEnvironmentVariable ("PREFIX")
                     };
                 }
                 else
