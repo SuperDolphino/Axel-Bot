@@ -8,41 +8,49 @@ using Newtonsoft.Json;
 
 namespace Discord_Bot
 {
-	class Config
-	{
-
-		 public static BotConfig bot;
-
-    static Config()
+	 class Config
     {
-        bot = new BotConfig
+        private static string configFolder = $"{Environment.CurrentDirectory}/Resources";
+        private const string configFile = "config.json";
+
+        public static BotConfig bot;
+
+        static Config()
         {
-            token = Environment.GetEnvironmentVariable ("TOKEN"),
-            cmdPrefix = Environment.GetEnvironmentVariable ("PREFIX")
-        };
-		// private static string configFolder = $"{Environment.CurrentDirectory}/Resources";
-		// private const string configFile = "config.json";
+            bot = new BotConfig
+            {
+                
+            };
 
-		// public static BotConfig bot;
+            if (!Directory.Exists(configFolder))
+                Directory.CreateDirectory(configFolder);
 
-		// static Config()
-		// {
-		// 	if (!Directory.Exists(configFolder))
-		// 		Directory.CreateDirectory(configFolder);
+            if(!File.Exists(configFolder + "/" + configFile))
+            {
+                bot = new BotConfig();
+                string json = JsonConvert.SerializeObject(bot,Formatting.Indented);
+                File.WriteAllText(configFolder + "/" + configFile, json);
 
-		// 	if(!File.Exists(configFolder + "/" + configFile))
-		// 	{
-		// 		bot = new BotConfig();
-		// 		string json = JsonConvert.SerializeObject(bot,Formatting.Indented);
-		// 		File.WriteAllText(configFolder + "/" + configFile, json);
+            }
+            else
+            {
+                string json = File.ReadAllText(configFolder + "/" + configFile);
 
-		// 	}
-		// 	else
-		// 	{
-		// 		string json = File.ReadAllText(configFolder + "/" + configFile);
-		// 		 bot = JsonConvert.DeserializeObject<BotConfig>(json);
-		// 	}
-		}
+                if (string.IsNullOrEmpty (json))
+                {
+                    bot = new BotConfig
+                    {
+                        token = Environment.GetEnvironmentVariable ("TOKEN"),
+                        cmdPrefix = Environment.GetEnvironmentVariable ("CMDPREFIX")
+                    };
+                }
+                else
+                {
+                    bot = JsonConvert.DeserializeObject<BotConfig>(json);
+                }
+            }
+        }
+    }
 	}
 
 	public struct BotConfig
@@ -51,4 +59,4 @@ namespace Discord_Bot
 		public string cmdPrefix;
 	}
 
-}
+
