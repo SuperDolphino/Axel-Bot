@@ -55,7 +55,7 @@ namespace Discord_Bot
     }
 	}
 
-	public struct BotConfig
+	public class BotConfig
 	{
 		public string token;
 		public string cmdPrefix;
