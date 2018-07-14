@@ -9,6 +9,7 @@ using Discord.Rest;
 using Discord.WebSocket;
 using Discord_Bot.Core.UserAccounts;
 using Discord_Bot.Core;
+using System.IO;
 
 
 namespace Discord_Bot.Modules
@@ -16,6 +17,7 @@ namespace Discord_Bot.Modules
 	public class Misc : ModuleBase<SocketCommandContext>
 	{
 		[Command("echo")]
+		[RequireUserPermission(GuildPermission.Administrator)]
 		public async Task Echo(ITextChannel channel, [Remainder] string message)
 		{
 
@@ -32,6 +34,12 @@ namespace Discord_Bot.Modules
 		{
 			Global.Currency = Currency;
 			await Context.Channel.SendMessageAsync($"Currency was set to {Currency}!");
+		}
+
+		[Command("Dir")]
+		public async Task dir()
+		{
+			await Context.Channel.SendMessageAsync(Directory.GetCurrentDirectory());
 		}
 
 		[Command("React")]
