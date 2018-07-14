@@ -50,7 +50,7 @@ namespace Discord_Bot
                 }
             }
 			System.Console.WriteLine(Environment.GetEnvironmentVariable("TOKEN"));
-			System.Console.WriteLine(Environment.GetEnvironmentVariable("CMDPREFIX"));
+			System.Console.WriteLine(Environment.GetEnvironmentVariable("PREFIX"));
 		}
     }
 	}
