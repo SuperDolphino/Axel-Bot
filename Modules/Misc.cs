@@ -221,7 +221,7 @@ namespace Discord_Bot.Modules
 		{
 			var account = UserAccounts.GetAccount(Context.User as IGuildUser);
 			var embed = new EmbedBuilder();
-			embed.WithTitle($"{Context.User} Stats:");
+			embed.WithTitle($"{Context.User.Username} Stats:");
 			embed.WithColor(new Color(0, 255, 0));
 			embed.WithDescription($"You have {account.Money} {Global.Currency}.");
 			await Context.Channel.SendMessageAsync("", false, embed);
