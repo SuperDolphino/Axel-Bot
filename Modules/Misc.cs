@@ -40,14 +40,19 @@ namespace Discord_Bot.Modules
 		[RequireUserPermission(GuildPermission.Administrator)]
 		public async Task dir()
 		{
-			var embed = new EmbedBuilder();
-			Directory.SetCurrentDirectory("/app/heroku_output/Resources");
-			var list2 = Directory.EnumerateFiles(Directory.GetCurrentDirectory());
-			foreach (var item in list2)
+			string dir = "/app/heroku_output/Resources";
+			try
 			{
-				embed.AddField(item,"", true);
+				//Set the current directory.
+				Directory.SetCurrentDirectory(dir);
 			}
-			
+			catch (DirectoryNotFoundException e)
+			{
+				Console.WriteLine("The specified directory does not exist. {0}", e);
+			}
+			// Print to console the results.
+			Console.WriteLine("Root directory: {0}", Directory.GetDirectoryRoot(dir));
+			Console.WriteLine("Current directory: {0}", Directory.GetCurrentDirectory());
 		}
 
 		[Command("React")]
