@@ -162,11 +162,15 @@ namespace Discord_Bot.Modules
 		[Command("Axolotl")]
 		public async Task Axolotl()
 		{
-			const int numberOfImages = 60;
-			var rand = new Random();
-			int imageNumber = rand.Next(1, numberOfImages);
-			string imageName = "Resources/Axolotls" + "/" + "Axolotl (" + imageNumber.ToString() + ").jpg";
-			await Context.Channel.SendFileAsync(imageName);
+
+			var embed = new EmbedBuilder();
+			embed.WithImageUrl("http://imageupper.com/i/?S1100010070031J15316941962171078");
+			//const int numberOfImages = 60;
+			//var rand = new Random();
+			//int imageNumber = rand.Next(1, numberOfImages);
+			//string imageName = "Resources/Axolotls" + "/" + "Axolotl (" + imageNumber.ToString() + ").jpg";
+			//await Context.Channel.SendFileAsync(imageName);
+			await Context.Channel.SendMessageAsync("", false, embed);
 		}
 
 		[Command("flip")]
