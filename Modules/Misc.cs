@@ -53,6 +53,7 @@ namespace Discord_Bot.Modules
 			// Print to console the results.
 			Console.WriteLine("Root directory: {0}", Directory.GetDirectoryRoot(dir));
 			Console.WriteLine("Current directory: {0}", Directory.GetCurrentDirectory());
+			Console.WriteLine(Directory.EnumerateFiles(dir));
 		}
 
 		[Command("React")]
