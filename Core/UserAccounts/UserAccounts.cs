@@ -57,7 +57,7 @@ namespace Discord_Bot.Core.UserAccounts
 			{
 				boughtItems = new List<ShopItem>(),
 				ID = id,
-				Whole = 1,
+				Money = 1,
 				XP = 0
 
 			};

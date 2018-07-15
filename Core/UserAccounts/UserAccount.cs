@@ -10,7 +10,7 @@ namespace Discord_Bot.Core.UserAccounts
 	{
 		public ulong ID { get; set; }
 
-		public uint Whole { get; set; }
+		public uint Money { get; set; }
 
 		public uint XP { get; set; }
 

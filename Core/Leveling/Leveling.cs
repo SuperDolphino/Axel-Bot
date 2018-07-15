@@ -32,7 +32,7 @@ namespace Discord_Bot.Core.Leveling
 			{
 				XpMultiplier = 5;
 			}
-			userAccount.Whole += XpMultiplier;
+			userAccount.Money += XpMultiplier;
 			UserAccounts.UserAccounts.SaveAccount();
 
 

@@ -38,7 +38,7 @@ namespace Discord_Bot.Modules
 
 		[Command("Dir")]
 		[RequireUserPermission(GuildPermission.Administrator)]
-		public async Task dir()
+		public async Task Dir()
 		{
 			string dir = "/app/heroku_output/Resources";
 			try
@@ -95,6 +95,7 @@ namespace Discord_Bot.Modules
 					embed.AddField("React:", "Create a new message that members can react to to get roles! **(MOD ONLY)**", false);
 					embed.AddField("Echo:", "Send a message from the bot to a specific channel (announcement)!  **(MOD ONLY)**", false);
 					embed.AddField("Additem:", "Add an item to the shop **(MOD ONLY)**", false);
+					embed.AddField("AddMoney:", "Give a user an amount of money **(MOD ONLY)**", false);
 					embed.AddField("Axolotl:", "Get a random axolotl picture!", false);
 					embed.AddField("Fight:", "Get into a fight and kick some ass!", false);
 					embed.AddField("Stats:", "Display how much Money you have", false);
@@ -177,10 +178,19 @@ namespace Discord_Bot.Modules
 			switch (result)
 			{
 				case 1:
-					await Context.Channel.SendMessageAsync($"You got heads!");
+					var embed = new EmbedBuilder();
+					embed.WithTitle("Coin Flip Result:");
+					embed.WithDescription($"**{Context.User.Username}** You tossed the coin and got **HEADS**!");
+					embed.WithColor(new Color(0, 255, 0));
+					await Context.Channel.SendMessageAsync("", false, embed);
+
 					break;
 				case 2:
-					await Context.Channel.SendMessageAsync($"You got tails!");
+					var embed2 = new EmbedBuilder();
+					embed2.WithTitle("Coin Flip Result:");
+					embed2.WithDescription($"**{Context.User.Username}** You tossed the coin and got **TAILS**!");
+					embed2.WithColor(new Color(0, 255, 0));
+					await Context.Channel.SendMessageAsync("", false, embed2);
 					break;
 			}
 		}
@@ -190,7 +200,6 @@ namespace Discord_Bot.Modules
 		{
 
 			await Context.Channel.SendMessageAsync($"Oh Boi!!, it looks like {Context.User.Mention} and {fight.Mention} are fighting!!");
-			Console.WriteLine("FIGHITING AND SHIT");
 			var seconds = 3000;
 			Random r = new Random();
 			int result = r.Next(1, 3);
@@ -199,10 +208,10 @@ namespace Discord_Bot.Modules
 			switch (result)
 			{
 				case 1:
-					await Context.Channel.SendMessageAsync($"{fight.Mention} WON!");
+					await Context.Channel.SendMessageAsync($"***{fight.Mention} WON!***");
 					break;
 				case 2:
-					await Context.Channel.SendMessageAsync($"{Context.User.Mention} WON!");
+					await Context.Channel.SendMessageAsync($"***{Context.User.Mention} WON!***");
 					break;
 			}
 		}
@@ -211,7 +220,11 @@ namespace Discord_Bot.Modules
 		public async Task MyXP()
 		{
 			var account = UserAccounts.GetAccount(Context.User as IGuildUser);
-			await Context.Channel.SendMessageAsync($"{Context.User.Username} You have {account.Whole} {Global.Currency}.");
+			var embed = new EmbedBuilder();
+			embed.WithTitle($"{Context.User} Stats:");
+			embed.WithColor(new Color(0, 255, 0));
+			embed.WithDescription($"You have {account.Money} {Global.Currency}.");
+			await Context.Channel.SendMessageAsync("", false, embed);
 		}
 
 		[Command("AddMoney")]
@@ -219,8 +232,8 @@ namespace Discord_Bot.Modules
 		public async Task AddXP(IGuildUser user, uint amount)
 		{
 			var account = UserAccounts.GetAccount(Context.User as IGuildUser);
-			account.Whole += amount;
-			await Context.Channel.SendMessageAsync($"{user.Username} now has {account.Whole.ToString()} whole!");
+			account.Money += amount;
+			await Context.Channel.SendMessageAsync($"{user.Username} now has {account.Money.ToString()} whole!");
 		}
 
 		[Command("staffChannel")]
@@ -230,12 +243,18 @@ namespace Discord_Bot.Modules
 			Global.StaffChannel = channel;
 			await Context.Channel.SendMessageAsync($"The Staff channel was set to {channel}");
 		}
+
 		[Command("Shop")]
 		public async Task Shop()
 		{
 			var embed = new EmbedBuilder();
 			embed.WithTitle("Shop:");
 			var shopList = DataStorage.ListItems("Resources/ShopItems.json");
+			if (shopList.Count() == 0 || shopList == null)
+			{
+				await Context.Channel.SendMessageAsync("The Shop is empty");
+				return;
+			}
 			foreach (var item in shopList)
 			{
 				embed.AddField(item.itemName, item.price.ToString() + Global.Currency, true);
@@ -268,6 +287,7 @@ namespace Discord_Bot.Modules
 				if (Global.StaffChannel == null)
 				{
 					await Context.Channel.SendMessageAsync("Please set the Staff Channel using a/staffChannel");
+					return;
 				}
 				else
 				{
@@ -319,12 +339,12 @@ namespace Discord_Bot.Modules
 				{
 					//await Context.Channel.SendMessageAsync($"We found it, you're trying to buy {Item}");
 					var account = UserAccounts.GetAccount(Context.User as IGuildUser);
-					if (account.Whole >= itemm.price)
+					if (account.Money >= itemm.price)
 					{
 						if (!account.boughtItems.Any(i => i.itemName == Item))
 						{
 							await BuyItem(itemm, Context.User as IGuildUser);
-							account.Whole -= itemm.price;
+							account.Money -= itemm.price;
 							account.boughtItems.Add(itemm);
 							UserAccounts.SaveAccount();
 						}
@@ -342,7 +362,7 @@ namespace Discord_Bot.Modules
 				}
 				if (counter == 0)
 				{
-					await Context.Channel.SendMessageAsync($"{Item} was not found, rip");
+					await Context.Channel.SendMessageAsync($"{Item} was not found, Please copy the name exactly");
 				}
 			}
 
