@@ -4617,11 +4617,11 @@
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "C:\\Users\\mohamad\\Documents\\Visual Studio 2017\\Projects\\Discord-Bot\\Discord-Bot\\Discord-Bot.csproj",
+      "projectUniqueName": "C:\\Users\\mohamad\\Documents\\Visual Studio 2017\\Projects\\Discord-Bot - Copy\\Discord-Bot\\Discord-Bot.csproj",
       "projectName": "Discord-Bot",
-      "projectPath": "C:\\Users\\mohamad\\Documents\\Visual Studio 2017\\Projects\\Discord-Bot\\Discord-Bot\\Discord-Bot.csproj",
+      "projectPath": "C:\\Users\\mohamad\\Documents\\Visual Studio 2017\\Projects\\Discord-Bot - Copy\\Discord-Bot\\Discord-Bot.csproj",
       "packagesPath": "C:\\Users\\mohamad\\.nuget\\packages\\",
-      "outputPath": "C:\\Users\\mohamad\\Documents\\Visual Studio 2017\\Projects\\Discord-Bot\\Discord-Bot\\obj\\",
+      "outputPath": "C:\\Users\\mohamad\\Documents\\Visual Studio 2017\\Projects\\Discord-Bot - Copy\\Discord-Bot\\obj\\",
       "projectStyle": "PackageReference",
       "fallbackFolders": [
         "C:\\Program Files\\dotnet\\sdk\\NuGetFallbackFolder"

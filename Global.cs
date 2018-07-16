@@ -1,4 +1,5 @@
 ﻿using Discord;
+using Discord.WebSocket;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -9,6 +10,9 @@ namespace Discord_Bot
 {
 	internal static class Global
 	{
+
+		internal static DiscordSocketClient Client { get; set; }
+
 		internal static ulong MessageIdToTrack { get; set; }
 		internal static string Emote { get; set; }
 		internal static string Role { get; set; }
