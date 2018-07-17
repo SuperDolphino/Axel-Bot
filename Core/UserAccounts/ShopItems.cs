@@ -3,14 +3,22 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using Npgsql;
+using System.Runtime.InteropServices;
+using Discord.Commands;
+using System.Web;
+
 
 namespace Discord_Bot.Core.UserAccounts
 {
 	public static class ShopItems
-	{
+	{ 
+		
 		private static List<ShopItem> shopItems;
 
+
 		private static string ShopFile = "Resources/ShopItems.json";
+
 		static ShopItems()
 		{
 			if (DataStorage.SaveExists(ShopFile))
@@ -37,27 +45,27 @@ namespace Discord_Bot.Core.UserAccounts
 		public static ShopItem GetItem(ShopItem item)
 		{
 
-			return GetOrCreateAccount(item);
+			return GetOrCreateItem(item);
 		}
 
-		private static ShopItem GetOrCreateAccount(ShopItem item)
+		private static ShopItem GetOrCreateItem(ShopItem item)
 		{
 			var result = from a in shopItems
 						 where a.itemName == item.itemName
 						 where a.price == item.price
 						 select a;
 
-			var account = result.FirstOrDefault();
-			if (account == null)
+			var Item = result.FirstOrDefault();
+			if (Item == null)
 			{
-				account = CreateItem(item);
+				Item = CreateItem(item);
 			}
-			return account;
+			return Item;
 		}
 
 		private static ShopItem CreateItem(ShopItem id)
 		{
-			var newAccount = new ShopItem()
+			var newitem = new ShopItem()
 			{
 				itemName = id.itemName,
 				price = id.price,
@@ -65,9 +73,9 @@ namespace Discord_Bot.Core.UserAccounts
 				
 				
 			};
-			shopItems.Add(newAccount);
+			shopItems.Add(newitem);
 			SaveItem();
-			return newAccount;
+			return newitem;
 		}
 	}
 }

@@ -10,7 +10,8 @@ using System.IO;
 namespace Discord_Bot.Core
 {
 	public static class DataStorage
-	{
+	{	
+
 		public static void SaveUserAccounts(IEnumerable<UserAccount> accounts, string filepath)
 		{
 			string json = JsonConvert.SerializeObject(accounts);
@@ -56,5 +57,6 @@ namespace Discord_Bot.Core
 		{
 			return File.Exists(filepath);
 		}
+
 	}
 }
