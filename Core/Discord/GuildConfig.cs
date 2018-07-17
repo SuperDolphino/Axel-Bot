@@ -12,6 +12,7 @@ namespace Discord_Bot.Core.Discord
 
 	public int LanguageID { get; set; }
 
+	public int StaffChannel { get; set; }
 	// Leveling
 
 	public ulong TextMessageExpReward { get; set; }

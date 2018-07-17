@@ -10,7 +10,7 @@ using Discord.WebSocket;
 using Discord_Bot.Core.UserAccounts;
 using Discord_Bot.Core;
 using System.IO;
-
+using Discord_Bot.Core.Discord;
 
 namespace Discord_Bot.Modules
 {
@@ -159,13 +159,31 @@ namespace Discord_Bot.Modules
 			}
 		}
 
+		[Command("Vote")]
+		[Summary("Creates a vote.")]
+		public async Task NewVote([Remainder] string secondPart)
+		{
+			var configCfg = Guilds.GetGuildConfig(Context.Guild);
+			if (secondPart.Length >= 200)
+			{
+				await Context.Channel.SendMessageAsync("Vote is too long");
+				return;
+			}
+			var embed = new EmbedBuilder();
+			embed.WithColor(Color.Green);
+			embed.WithTitle("VOTE");
+			embed.WithDescription(secondPart + "\n by " + Context.User.Username);
+			RestUserMessage msg = await Context.Channel.SendMessageAsync("", embed: embed);
+			await msg.AddReactionAsync(new Emoji("✅"));
+			await msg.AddReactionAsync(new Emoji("❌"));
+		}
+
 		[Command("Axolotl")]
 		public async Task Axolotl()
 		{
 			#region link
 			var links = "https://i.imgur.com/9IlApTP.jpg , https://i.imgur.com/09r84At.jpg , https://i.imgur.com/dmiAkWx.jpg , https://i.imgur.com/IKt8A2J.jpg , https://i.imgur.com/EZflXPu.jpg , https://i.imgur.com/r3zSlJr.jpg , https://i.imgur.com/hyKgWQ2.jpg , https://i.imgur.com/x0jBNJ5.jpg , https://i.imgur.com/kymTLW5.jpg , https://i.imgur.com/Gii8onS.jpg , https://i.imgur.com/4PWxyQY.jpg , https://i.imgur.com/B3D8pPX.jpg , https://i.imgur.com/HWjbK4U.jpg , https://i.imgur.com/VVGBC72.jpg , https://i.imgur.com/RAJkfNU.jpg , https://i.imgur.com/qRFC18J.jpg , https://i.imgur.com/I1tHadO.jpg , https://i.imgur.com/oBjvSdt.jpg , https://i.imgur.com/mbCv0Ts.jpg , https://i.imgur.com/6Z2SjCq.jpg , https://i.imgur.com/MFedbn8.jpg , https://i.imgur.com/Aylfw7q.jpg , https://i.imgur.com/nNkFNli.jpg , https://i.imgur.com/Ke20FIo.jpg , https://i.imgur.com/TE6J0WS.jpg , https://i.imgur.com/TVqNZJb.jpg , https://i.imgur.com/wPClP6g.jpg , https://i.imgur.com/F1U9JVS.jpg , https://i.imgur.com/pWk663L.jpg , https://i.imgur.com/BIHlnGz.jpg , https://i.imgur.com/RePVsoe.jpg , https://i.imgur.com/pdEAtLX.jpg , https://i.imgur.com/bJmZPBx.jpg , https://i.imgur.com/rUoOAlx.jpg , https://i.imgur.com/5NVK05l.jpg , https://i.imgur.com/C3ZpIwo.jpg , https://i.imgur.com/VkgI8Lx.jpg , https://i.imgur.com/5BVKSmi.jpg , https://i.imgur.com/3csNbn2.jpg , https://i.imgur.com/IbHQaXj.jpg , https://i.imgur.com/B8eeFAj.jpg , https://i.imgur.com/jLVU6TD.jpg , https://i.imgur.com/qbJ5W29.jpg , https://i.imgur.com/nukWklR.jpg , https://i.imgur.com/NN0zzoZ.jpg , https://i.imgur.com/qXFf3OO.jpg , https://i.imgur.com/V93ZL87.jpg , https://i.imgur.com/INRks1s.jpg , https://i.imgur.com/aLVyUcQ.jpg , https://i.imgur.com/sFK6Mjx.jpg , https://i.imgur.com/wRflVSq.jpg , https://i.imgur.com/Pmpq3UC.jpg , https://i.imgur.com/VCbfJ7L.jpg , https://i.imgur.com/kwYujry.jpg , https://i.imgur.com/y44cB76.jpg , https://i.imgur.com/s7R731Z.jpg , https://i.imgur.com/m7o9l4K.jpg , https://i.imgur.com/J8fJfqu.jpg , https://i.imgur.com/zHKOlZl.jpg , https://i.imgur.com/abxNFIy.jpg , https://i.imgur.com/ljDR1BJ.jpg , https://i.imgur.com/VTVTYF1.jpg , https://i.imgur.com/j1Vyt9p.jpg , https://i.imgur.com/gwffjlm.jpg";
 			#endregion
-
 
 			List<string> list = links.Split(',').ToList<string>();
 
@@ -182,6 +200,11 @@ namespace Discord_Bot.Modules
 			await Context.Channel.SendMessageAsync("", false, embed);
 		}
 
+		[Command("AddAxolotl")]
+		public async Task AddAxolotl()
+		{
+			
+		}
 		[Command("flip")]
 		public async Task Flip()
 		{
