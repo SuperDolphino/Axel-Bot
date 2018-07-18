@@ -62,7 +62,7 @@ namespace Discord_Bot.Modules.ShopSystem
 					using (NpgsqlCommand cmd = new NpgsqlCommand())
 					{
 						cmd.Connection = conn; 
-						cmd.CommandText = $"CREATE TABLE {tableName} (ItemName varchar(255), ItemPrice int, Role varchar(255))"; 
+						cmd.CommandText = $"CREATE TABLE {tableName} (ItemName varchar(255), Price int, Role varchar(255))"; 
 						await cmd.ExecuteNonQueryAsync();
 					}
 				}
@@ -145,7 +145,6 @@ namespace Discord_Bot.Modules.ShopSystem
 						ShopItems.Add(newitem);
 					}
 			}
-
 
 			var embed = new EmbedBuilder();
 			embed.WithTitle("Shop:");
