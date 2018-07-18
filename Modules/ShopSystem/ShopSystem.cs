@@ -52,7 +52,7 @@ namespace Discord_Bot.Modules.ShopSystem
 			string connString = string.Format("Host={0};Username={1};Password={2};Database={3}", uriBuilder.Host, uriBuilder.UserName, uriBuilder.Password, await SanitizeDB(uriBuilder.Path));
 
 			string[] options = nameAndRole.Split(new char[] { '|' }, StringSplitOptions.RemoveEmptyEntries);
-			string tableName = "shopItems" + Context.Guild.Id;
+			string tableName = "ShopItems" + Context.Guild.Id;
 
 			using (NpgsqlConnection conn = new NpgsqlConnection(connString))
 			{
@@ -127,7 +127,7 @@ namespace Discord_Bot.Modules.ShopSystem
 		{
 			UriBuilder uriBuilder = new UriBuilder(Environment.GetEnvironmentVariable("DATABASE_URL"));
 			string connString = string.Format("Host={0};Username={1};Password={2};Database={3}", uriBuilder.Host, uriBuilder.UserName, uriBuilder.Password, await SanitizeDB(uriBuilder.Path));
-			string tableName = "shopItems" + Context.Guild.Id;
+			string tableName = "ShopItems" + Context.Guild.Id;
 			List<ShopItem> ShopItems = new List<ShopItem>();
 			using (NpgsqlConnection conn = new NpgsqlConnection(connString))
 			{
