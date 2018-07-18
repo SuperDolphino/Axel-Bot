@@ -5,6 +5,7 @@ using System.Text;
 using Newtonsoft.Json;
 using System.Linq;
 using System.IO;
+using Discord;
 
 namespace Discord_Bot.Core.Discord
 {
@@ -75,7 +76,19 @@ namespace Discord_Bot.Core.Discord
 		SaveGuildConfigs();
 	}
 
-	internal static void SetGuildPrefix(SocketGuild guild, string prefix)
+		internal static void SetGuildStaffChannel(ulong guildID, ITextChannel channel)
+		{
+			GuildConfig cfg = GetGuildConfig(guildID);
+			cfg.StaffChannel = channel;
+			SaveGuildConfigs();
+		}
+		internal static void SetGuildStaffChannel(SocketGuild guild, ITextChannel channel)
+		{
+			GuildConfig cfg = GetGuildConfig(guild);
+			cfg.StaffChannel = channel;
+			SaveGuildConfigs();
+		}
+		internal static void SetGuildPrefix(SocketGuild guild, string prefix)
 	{
 		SetGuildPrefix(guild.Id, prefix);
 	}

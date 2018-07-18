@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Discord;
+using System;
 using System.Collections.Generic;
 using System.Text;
 
@@ -12,7 +13,7 @@ namespace Discord_Bot.Core.Discord
 
 	public int LanguageID { get; set; }
 
-	public int StaffChannel { get; set; }
+	public ITextChannel StaffChannel { get; set; }
 	// Leveling
 
 	public ulong TextMessageExpReward { get; set; }
