@@ -44,6 +44,7 @@ namespace Discord_Bot.Modules.ShopSystem
 			await Context.Channel.SendMessageAsync($"The Staff channel was set to {channel}");
 		}
 
+
 		[Command("Additem")]
 		[RequireUserPermission(GuildPermission.Administrator)]
 		public async Task ShopAdd(uint price, [Remainder]string nameAndRole)
@@ -52,17 +53,17 @@ namespace Discord_Bot.Modules.ShopSystem
 			string connString = string.Format("Host={0};Username={1};Password={2};Database={3}", uriBuilder.Host, uriBuilder.UserName, uriBuilder.Password, await SanitizeDB(uriBuilder.Path));
 
 			string[] options = nameAndRole.Split(new char[] { '|' }, StringSplitOptions.RemoveEmptyEntries);
-			string tableName = "ShopItems" + Context.Guild.Id;
+			string tableName = "shopitems" + Context.Guild.Id;
 
 			using (NpgsqlConnection conn = new NpgsqlConnection(connString))
 			{
-				conn.Open(); 
-				try 
+				conn.Open();
+				try
 				{
 					using (NpgsqlCommand cmd = new NpgsqlCommand())
 					{
-						cmd.Connection = conn; 
-						cmd.CommandText = $"CREATE TABLE {tableName} (ItemName varchar(255), Price int, Role varchar(255))"; 
+						cmd.Connection = conn;
+						cmd.CommandText = $"CREATE TABLE {tableName} (itemname varchar(255), price int, role varchar(255))";
 						await cmd.ExecuteNonQueryAsync();
 					}
 				}
@@ -70,27 +71,28 @@ namespace Discord_Bot.Modules.ShopSystem
 				{
 				}
 				bool exists = false;
-				using (NpgsqlCommand cmd = new NpgsqlCommand($"SELECT * FROM {tableName} WHERE ItemName='{options[0].Trim()}' AND Price={price} AND Role='{options[1].Trim()}'", conn)) //Try to find the time property of a cooldown where the person who sent the message thanked the current person who's being thanked. If it doesn't exist, the next statement won't be executed
+				using (NpgsqlCommand cmd = new NpgsqlCommand($"SELECT * FROM {tableName} WHERE itemname='{options[0].Trim()}' AND price={price} AND role='{options[1].Trim()}'", conn))
 				using (NpgsqlDataReader reader = cmd.ExecuteReader())
 					while (reader.Read())
 					{
 						exists = true;
 						break;
 					}
-						if (!exists) { 
-				using (NpgsqlCommand cmd = new NpgsqlCommand())
+				if (!exists)
 				{
-					cmd.Connection = conn;
-					cmd.CommandText = $"INSERT INTO {tableName} VALUES('{options[0].Trim()}',{price},'{options[1].Trim()}')";
-					await cmd.ExecuteNonQueryAsync();
-					
+					using (NpgsqlCommand cmd = new NpgsqlCommand())
+					{
+						cmd.Connection = conn;
+						cmd.CommandText = $"INSERT INTO {tableName} VALUES('{options[0].Trim()}',{price},'{options[1].Trim()}')";
+						await cmd.ExecuteNonQueryAsync();
+
+					}
 				}
-			}
-                else
-                {
+				else
+				{
 					await ReplyAsync("Item already exists.");
 				}
-		}
+			}
 			string ItemName = options[0].Trim();
 			string RoleName = options[1].Trim();
 			if (options[1].Trim() == "")
@@ -106,7 +108,7 @@ namespace Discord_Bot.Modules.ShopSystem
 				}
 				else
 				{
-					if (RoleName == "Emote" || RoleName== "emote")
+					if (RoleName == "Emote" || RoleName == "emote")
 					{
 						await ReplyAsync($"You added {ItemName} to the shop, it costs {price} , Admins will get notified in {Global.StaffChannel}");
 					}
@@ -127,7 +129,7 @@ namespace Discord_Bot.Modules.ShopSystem
 		{
 			UriBuilder uriBuilder = new UriBuilder(Environment.GetEnvironmentVariable("DATABASE_URL"));
 			string connString = string.Format("Host={0};Username={1};Password={2};Database={3}", uriBuilder.Host, uriBuilder.UserName, uriBuilder.Password, await SanitizeDB(uriBuilder.Path));
-			string tableName = "ShopItems" + Context.Guild.Id;
+			string tableName = "shopitems" + Context.Guild.Id;
 			List<ShopItem> ShopItems = new List<ShopItem>();
 			using (NpgsqlConnection conn = new NpgsqlConnection(connString))
 			{
@@ -139,7 +141,7 @@ namespace Discord_Bot.Modules.ShopSystem
 						var newitem = new ShopItem()
 						{
 							itemName = reader.GetString(0),
-							price =  (uint)reader.GetInt32(1),
+							price = (uint)reader.GetInt32(1),
 							rolename = reader.GetString(2)
 						};
 						ShopItems.Add(newitem);
@@ -155,7 +157,7 @@ namespace Discord_Bot.Modules.ShopSystem
 			}
 			foreach (var item in ShopItems)
 			{
-				embed.AddField(item.itemName, item.price.ToString() + " "+ Global.Currency, true);
+				embed.AddField(item.itemName, item.price.ToString() + " " + Global.Currency, true);
 			}
 			embed.WithColor(new Color(0, 255, 0));
 			await Context.Channel.SendMessageAsync("", false, embed);
