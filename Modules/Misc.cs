@@ -187,14 +187,17 @@ namespace Discord_Bot.Modules
 
 			List<string> list = links.Split(',').ToList<string>();
 
-			for (int i = 0; i < num; i++)
+			if (num < 20)
 			{
-				var rng = new Random();
-				var randomIndex = rng.Next(0, list.Count());
+				for (int i = 0; i < num; i++)
+				{
+					var rng = new Random();
+					var randomIndex = rng.Next(0, list.Count());
 
-				var embed = new EmbedBuilder();
-				embed.WithImageUrl(list[randomIndex].Trim());
-				await Context.Channel.SendMessageAsync("", false, embed);
+					var embed = new EmbedBuilder();
+					embed.WithImageUrl(list[randomIndex].Trim());
+					await Context.Channel.SendMessageAsync("", false, embed);
+				}
 			}
 		
 		}
