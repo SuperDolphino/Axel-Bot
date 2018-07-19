@@ -58,7 +58,6 @@ namespace Discord_Bot.Core.UserAccounts
 				boughtItems = new List<ShopItem>(),
 				ID = id,
 				Money = 1,
-				XP = 0
 
 			};
 			accounts.Add(newAccount);

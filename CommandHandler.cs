@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 using Discord.WebSocket;
 using Discord.Commands;
 using System.Reflection;
-using Discord_Bot.Core.Leveling;
+//using Discord_Bot.Core.Leveling;
 using System.Diagnostics;
 using Discord_Bot.Core.UserAccounts;
 using Discord;
@@ -36,7 +36,7 @@ namespace Discord_Bot
 
 
 			// Leveling up
-			Leveling.UserSentMessage((SocketGuildUser)context.User);
+	//		Leveling.UserSentMessage((SocketGuildUser)context.User);
 
 			int argPos = 0;
 			if (msg.HasStringPrefix(Config.BotConfig.cmdPrefix, ref argPos)
