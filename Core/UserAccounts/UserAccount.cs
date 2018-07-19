@@ -12,8 +12,6 @@ namespace Discord_Bot.Core.UserAccounts
 
 		public uint Money { get; set; }
 
-		public uint XP { get; set; }
-
 		public List<ShopItem> boughtItems { get; set; }
 	}
 }

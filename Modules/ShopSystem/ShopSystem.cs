@@ -23,7 +23,7 @@ namespace Discord_Bot.Modules.ShopSystem
 			embed.WithColor(new Color(0, 255, 0));
 			embed.WithDescription($"You have {account.Money} {Global.Currency}.");
 			await Context.Channel.SendMessageAsync("", false, embed);
-			#endregion		
+			#endregion
 		}
 
 		[Command("AddMoney")]
@@ -83,9 +83,16 @@ namespace Discord_Bot.Modules.ShopSystem
 					using (NpgsqlCommand cmd = new NpgsqlCommand())
 					{
 						cmd.Connection = conn;
-						cmd.CommandText = $"INSERT INTO {tableName} VALUES('{options[0].Trim()}',{price},'{options[1].Trim()}')";
-						await cmd.ExecuteNonQueryAsync();
-
+						if (options[1] != "" || options[1] != null)
+						{
+							cmd.CommandText = $"INSERT INTO {tableName} VALUES('{options[0].Trim()}',{price},'{options[1].Trim()}')";
+							await cmd.ExecuteNonQueryAsync();
+						}
+						else
+						{
+							cmd.CommandText = $"INSERT INTO {tableName} VALUES('{options[0].Trim()}',{price},'')";
+							await cmd.ExecuteNonQueryAsync();
+						}
 					}
 				}
 				else
@@ -165,15 +172,37 @@ namespace Discord_Bot.Modules.ShopSystem
 
 		[Command("remove")]
 		[RequireUserPermission(GuildPermission.Administrator)]
-		public async Task RemoveItem(string nameAndRole)
+		public async Task RemoveItem([Remainder]string nameAndRole)
 		{
-			var shopList = DataStorage.ListItems("Resources/ShopItems.json");
-			foreach (var item in shopList)
+			UriBuilder uriBuilder = new UriBuilder(Environment.GetEnvironmentVariable("DATABASE_URL"));
+			string connString = string.Format("Host={0};Username={1};Password={2};Database={3}", uriBuilder.Host, uriBuilder.UserName, uriBuilder.Password, await SanitizeDB(uriBuilder.Path));
+
+			string tableName = "shopitems" + Context.Guild.Id;
+
+			using (NpgsqlConnection conn = new NpgsqlConnection(connString))
 			{
-				if (nameAndRole.Trim() == item.itemName)
+				conn.Open();
+				bool exists = false;
+				using (NpgsqlCommand cmd = new NpgsqlCommand($"SELECT * FROM {tableName} WHERE itemname='{nameAndRole}'", conn))
+				using (NpgsqlDataReader reader = cmd.ExecuteReader())
+					while (reader.Read())
+					{
+						exists = true;
+						break;
+					}
+				if (exists)
 				{
-					ShopItems.RemoveItem(item);
-					await Context.Channel.SendMessageAsync($"{item.itemName} was removed");
+					using (NpgsqlCommand cmd = new NpgsqlCommand())
+					{
+						cmd.Connection = conn;
+						cmd.CommandText = $"DELETE FROM {tableName} WHERE itemname = '{nameAndRole}')";
+						await cmd.ExecuteNonQueryAsync();
+						await ReplyAsync($"Removed {nameAndRole} from the shop");
+					}
+				}
+				else
+				{
+					await ReplyAsync("Item doesn't exist");
 				}
 			}
 		}
